@@ -43,14 +43,10 @@ namespace sum
             return sub;
         }
         //multiplication
-        public static double multiplication(Double[] arr)
+        public static Double multiplication(Double a, Double b)
         {
-            Double mul = 0;
-            for (int i = 0; i < arr.Length; i++)
-            {
-                mul *= arr[i];
-            }
-            return mul;
+
+            return a * b;
         }
         //division
         public static Double division(Double a,Double b)

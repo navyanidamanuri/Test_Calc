@@ -21,44 +21,38 @@ namespace sum
             double a = 0;
             double b = 0;
             Double[] arr = new Double[] { };
-              switch (option)
+            switch (option)
             {
-               case 1:
-               case 2:
+                case 1:
+                case 2:
                     {
                         Console.WriteLine("press 1 for array");
                         Console.WriteLine("press 2 for two numbers");
                         int op = Convert.ToInt32(Console.ReadLine());
-                        
+
                         switch (op)
                         {
-<<<<<<< HEAD
-                            
-                            case 1: 
-=======
                             case 1:
-                            case 2: 
->>>>>>> 6ace1d0f2399855999dcb2b88cd9782607a5c0c9
-                              arr=  GetArray();
+                                arr = GetArray();
                                 break;
-                            case 3:
-                                
-                                GetDoubleValues(out a,out b);
+                            case 2:
+
+                                GetDoubleValues(out a, out b);
                                 break;
 
                         }
-                        if(arr.Length>0)
+                        if (arr.Length > 0)
                         {
-                            if(option==1)
+                            if (option == 1)
                             {
-                                result= Calic.addition(arr);
-                                 }
+                                result = Calic.addition(arr);
+                            }
                             else
                             {
                                 result = Calic.substraction(arr);
-                               
+
                             }
-                            
+
                         }
                         else
                         {
@@ -72,28 +66,30 @@ namespace sum
 
                         break;
                     }
-               
-               
+
+
                 case 3:
                     {
-                       arr= GetArray();
-                        result = Calic.multiplication(arr);
+
+                        GetDoubleValues(out a, out b);
+                        result = Calic.multiplication(a, b);
                         break;
+
                     }
 
                 case 4:
                     {
                         GetDoubleValues(out a, out b);
-                         try
+                        try
                         {
                             result = Math.Round(Calic.division(a, b));
-                            
+
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
                             Console.WriteLine(ex.Message);
                         }
-                         break;
+                        break;
                     }
                 default:
                     {
@@ -105,7 +101,7 @@ namespace sum
             Console.WriteLine(result);
             Console.ReadLine();
         }
-        public static Double[]  GetArray()
+        public static Double[] GetArray()
         {
             Console.WriteLine("arry size");
             int size = int.Parse(Console.ReadLine());
@@ -113,12 +109,12 @@ namespace sum
             Console.WriteLine("arry og eliments");
             for (int i = 0; i < size; i++)
             {
-                arr[i] = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                arr[i] = double.Parse(Console.ReadLine().Replace("(", "").Replace(")", "").Replace("--", ""), CultureInfo.InvariantCulture);
 
             }
-            return  arr;
+            return arr;
         }
-        public static void GetDoubleValues(out double a,out double b)
+        public static void GetDoubleValues(out double a, out double b)
         {
             Console.WriteLine("Enter two doble Values");
             a = double.Parse(Console.ReadLine());
