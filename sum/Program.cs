@@ -11,96 +11,99 @@ namespace sum
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcom to our caliculater");
-            Console.WriteLine("press 1 for addition");
-            Console.WriteLine("press 2 for substraction");
-            Console.WriteLine("press 3 for multiplication");
-            Console.WriteLine("press 4 for division");
-            int option = Convert.ToInt32(Console.ReadLine());
-            Double result = 0;
-            double a = 0;
-            double b = 0;
-            Double[] arr = new Double[] { };
-            switch (option)
+            try
             {
-                case 1:
-                case 2:
-                    {
-                        Console.WriteLine("press 1 for array");
-                        Console.WriteLine("press 2 for two numbers");
-                        int op = Convert.ToInt32(Console.ReadLine());
-
-                        switch (op)
+                Console.WriteLine("Welcom to our caliculater");
+                Console.WriteLine("press 1 for addition");
+                Console.WriteLine("press 2 for substraction");
+                Console.WriteLine("press 3 for multiplication");
+                Console.WriteLine("press 4 for division");
+                int option = Convert.ToInt32(Console.ReadLine());
+                Double result = 0;
+                double a = 0;
+                double b = 0;
+                Double[] arr = new Double[] { };
+                switch (option)
+                {
+                    case 1:
+                    case 2:
                         {
-                            case 1:
-                                arr = GetArray();
-                                break;
-                            case 2:
+                            Console.WriteLine("press 1 for array");
+                            Console.WriteLine("press 2 for two numbers");
+                            int op = Convert.ToInt32(Console.ReadLine());
 
-                                GetDoubleValues(out a, out b);
-                                break;
-
-                        }
-                        if (arr.Length > 0)
-                        {
-                            if (option == 1)
+                            switch (op)
                             {
-                                result = Calic.addition(arr);
+                                case 1:
+                                    arr = GetArray();
+                                    break;
+                                case 2:
+
+                                    GetDoubleValues(out a, out b);
+                                    break;
+
+                            }
+                            if (arr.Length > 0)
+                            {
+                                if (option == 1)
+                                {
+                                    result = Calic.addition(arr);
+                                }
+                                else
+                                {
+                                    result = Calic.substraction(arr);
+
+                                }
+
                             }
                             else
                             {
-                                result = Calic.substraction(arr);
-
+                                if (option == 1)
+                                    result = Calic.addition(a, b);
+                                else
+                                {
+                                    result = Calic.substraction(a, b);
+                                }
                             }
 
+                            break;
                         }
-                        else
+
+
+                    case 3:
                         {
-                            if (option == 1)
-                                result = Calic.addition(a, b);
-                            else
-                            {
-                                result = Calic.substraction(a, b);
-                            }
+
+                            GetDoubleValues(out a, out b);
+                            result = Calic.multiplication(a, b);
+                            break;
+
                         }
 
-                        break;
-                    }
-
-
-                case 3:
-                    {
-
-                        GetDoubleValues(out a, out b);
-                        result = Calic.multiplication(a, b);
-                        break;
-
-                    }
-
-                case 4:
-                    {
-                        GetDoubleValues(out a, out b);
-                        try
+                    case 4:
                         {
-                            result = Math.Round(Calic.division(a, b));
+                            GetDoubleValues(out a, out b);
+                           
+                                result = Calic.division(a, b);
 
+                         
+                            break;
                         }
-                        catch (Exception ex)
+                    default:
                         {
-                            Console.WriteLine(ex.Message);
+                            Console.WriteLine("wrong optionferformed try again");
+                            break;
                         }
-                        break;
-                    }
-                default:
-                    {
-                        Console.WriteLine("wrong optionferformed try again");
-                        break;
-                    }
 
+                }
+                Console.WriteLine(result);
+                Console.ReadLine();
             }
-            Console.WriteLine(result);
-            Console.ReadLine();
-        }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.ReadLine();
+            }
+            }
         public static Double[] GetArray()
         {
             Console.WriteLine("arry size");

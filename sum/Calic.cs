@@ -51,7 +51,11 @@ namespace sum
         //division
         public static Double division(Double a,Double b)
         {
-            return a / b;
+            if (b == 0)
+            {
+                throw new DivideByZeroException();
+            }
+             return a / b;
 
         }
      }

@@ -52,10 +52,7 @@ namespace Sum.Tests
            double expected = 14;
             //Act
             Double[] arr = new Double[5] { 1, 2, 2, 4, 5 };
-             for (int i = 0; i < arr.Length; i++)
-            {
-                Calic.addition(arr);
-            }
+            
              double result = Calic.addition(arr);
 
             //Assert
@@ -68,10 +65,6 @@ namespace Sum.Tests
             double expected = -60.6;
             //Act
             Double[] arr = new Double[4] { -2.2,5.5,-8.2,61.1 };
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Calic.substraction(arr);
-            }
             double result = Calic.substraction(arr);
 
             //Assert
@@ -89,18 +82,20 @@ namespace Sum.Tests
             //Assert
             Assert.Equal(expected, result);
         }
-        [Fact]
-        public void divisiontwodoublenumbers()
+        [Theory]
+        [InlineData(4,2)]
+        
+        public void divisiontwodoublenumbers(Double a,Double b)
         {
             //    //Arrange
-
-            double expected = 2;
+             double expected = 2;
 
             //Act
-            double result = Calic.division(4, 2);
+            double result = Calic.division(a, b);
 
             //Assert
-            Assert.Equal(expected, result);
+            Assert.Equal(expected,result);
+              
         }
 
     }
