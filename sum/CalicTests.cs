@@ -82,21 +82,19 @@ namespace Sum.Tests
             //Assert
             Assert.Equal(expected, result);
         }
+        [Theory]
+        [InlineData(4,2)]
         
-        [Fact]
-        public void divisionoftwonumbers()
+        public void divisiontwodoublenumbers(Double a,Double b)
         {
             //    //Arrange
-            
+             double expected = 2;
 
             //Act
-            var exception = Record.Exception(() => Calic.division(10, 0));
-            
+            double result = Calic.division(a, b);
 
             //Assert
-            Assert.IsType(typeof(DivideByZeroException), exception);
-
-                
+            Assert.Equal(expected,result);
               
         }
 
