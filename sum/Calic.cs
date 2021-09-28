@@ -53,7 +53,7 @@ namespace sum
         {
             if (b == 0)
             {
-                throw new DivideByZeroException();
+                throw new DivideByZeroException("Can not divided by Zero");
             }
              return a / b;
 

@@ -84,20 +84,15 @@ namespace Sum.Tests
         }
         
         [Fact]
-        public void divisionoftwonumbers()
+        public void Divisionoftwonumbers()
         {
-            //    //Arrange
-            
+            //Arrange
 
             //Act
-            var exception = Record.Exception(() => Calic.division(10, 0));
+            var Exception = Record.Exception(() => Calic.division(10, 0));
             
-
             //Assert
-            Assert.IsType(typeof(DivideByZeroException), exception);
-
-                
-              
+            Assert.IsType<DivideByZeroException>(Exception);
         }
 
     }
